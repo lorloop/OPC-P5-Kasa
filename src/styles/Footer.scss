@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background-color: #000000;
+
+  .logo {
+    margin-top: 50px;
+  }
+
+  .copyright {
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+}
