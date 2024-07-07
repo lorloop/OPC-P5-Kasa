@@ -1,0 +1,72 @@
+.accommodation {
+  margin: 0 100px;
+}
+
+.accommodation-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .title p {
+    font-size: 36px;
+    color: #ff6060;
+    font-weight: 500;
+  }
+
+  .location p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .header-host {
+    display: flex;
+    gap: 10px;
+
+    .host-name {
+      max-width: 93px;
+      display: flex;
+      align-items: center;
+
+      p {
+        color: #ff6060;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: right;
+      }
+    }
+
+    .host-picture img {
+      border-radius: 50%;
+      width: 64px;
+    }
+  }
+}
+
+.accomodation-tags {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  .pills {
+    display: flex;
+    gap: 10px;
+  }
+
+  .pill {
+    background-color: #ff6060;
+    border-radius: 10px;
+    width: 115px;
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      color: #ffffff;
+      padding: 3px 0;
+    }
+  }
+}
+
+.accommodation-accordions {
+  display: flex;
+  justify-content: space-between;
+}

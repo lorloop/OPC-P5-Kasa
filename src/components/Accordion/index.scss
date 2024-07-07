@@ -1,0 +1,25 @@
+.accordion-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #ff6060;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 20px;
+
+  button {
+    background: none;
+    border: none;
+    color: #ffffff;
+  }
+}
+
+.accordion-content {
+  background-color: rgba(246, 246, 246, 0.45);
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  margin-top: -30px;
+  font-size: 18px;
+  font-weight: 400;
+}
