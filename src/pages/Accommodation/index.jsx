@@ -1,51 +1,130 @@
-import { useParams } from 'react-router-dom'
-import { advertisementList } from '../../datas/advertisementList'
+import { useNavigate, useParams } from 'react-router-dom'
+import { advertisementList } from '../../datas/advertissmentList.js'
 import './index.scss'
 import Accordion from '../../components/Accordion'
+import { useEffect, useState } from 'react'
 
 export default function Accommodation() {
   const { id } = useParams()
+  const navigate = useNavigate()
+  const [imgId, setImgId] = useState(0)
 
-  const accommodation = advertisementList.filter((advertissement) => advertissement.id === id)
+  // Trouver le logement correspondant
+  const accommodation = advertisementList.find((advertissement) => advertissement.id === id)
+
+  // Si le logement n'existe pas, rediriger vers la page 404
+  useEffect(() => {
+    if (!accommodation) {
+      navigate('/404')
+    }
+  }, [accommodation, navigate])
+
+  // Définir l'état de l'image source après avoir vérifié l'existence de l'accommodation
+  const [src, setSrc] = useState(accommodation ? accommodation.pictures[imgId] : '')
+
+  // Mettre à jour l'image source lorsque imgId change
+  useEffect(() => {
+    if (accommodation) {
+      setSrc(accommodation.pictures[imgId])
+    }
+  }, [imgId, accommodation])
+
+  if (!accommodation) {
+    return null
+  }
+
+  function changeImage(direction) {
+    const lastImg = accommodation.pictures.length - 1
+    if (direction === 'back') {
+      if (imgId === 0) {
+        setImgId(lastImg)
+      } else {
+        setImgId(imgId - 1)
+      }
+    }
+
+    if (direction === 'next') {
+      if (imgId === lastImg) {
+        setImgId(0)
+      } else {
+        setImgId(imgId + 1)
+      }
+    }
+  }
+
+  function setStars(rating) {
+    const stars = []
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<i key={i} className="fa-solid fa-star active"></i>)
+      } else {
+        stars.push(<i key={i} className="fa-solid fa-star"></i>)
+      }
+    }
+    return stars
+  }
 
   return (
     <div className="accommodation">
+      <div className="slideshow">
+        <img className="slideshow-img" src={src} alt={accommodation.title} />
+        <div>
+          {accommodation.pictures.length === 1 ? (
+            ''
+          ) : (
+            <>
+              <div className="slideshow-arrows">
+                <button className="slideshow-back-arrow" onClick={() => changeImage('back')}>
+                  <i className="fa-solid fa-chevron-down"></i>
+                </button>
+                <button className="slideshow-next-arrow" onClick={() => changeImage('next')}>
+                  <i className="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <div className="slideshow-indicator">
+                <p>
+                  {imgId + 1}/{accommodation.pictures.length}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
       <div className="accommodation-header">
         <div className="header-title">
           <div className="title">
-            <p>{accommodation[0].title}</p>
+            <p>{accommodation.title}</p>
           </div>
           <div className="location">
-            <p>{accommodation[0].location}</p>
+            <p>{accommodation.location}</p>
           </div>
         </div>
         <div className="header-host">
           <div className="host-name">
-            <p>{accommodation[0].host.name}</p>
+            <p>{accommodation.host.name}</p>
           </div>
           <div className="host-picture">
-            <img src={accommodation[0].host.picture} alt="host picture" />
+            <img src={accommodation.host.picture} alt="host picture" />
           </div>
         </div>
       </div>
       <div className="accomodation-tags">
         <div className="pills">
-          {accommodation[0].tags.map((tag) => (
-            <>
-              <div className="pill" key={tag}>
-                <p>{tag}</p>
-              </div>
-            </>
+          {accommodation.tags.map((tag) => (
+            <div className="pill" key={tag}>
+              <p>{tag}</p>
+            </div>
           ))}
         </div>
-        <div></div>
+        <div className="stars">{setStars(accommodation.rating)}</div>
       </div>
       <div className="accommodation-accordions">
-        <div>
-          <Accordion title="Description" content={accommodation[0].description} />
+        <div className="accordion">
+          <Accordion title="Description" content={accommodation.description} />
         </div>
-        <div>
-          <Accordion title="Équipements" content={accommodation[0].equipments} />
+        <div className="accordion">
+          <Accordion title="Équipements" content={accommodation.equipments} />
         </div>
       </div>
     </div>

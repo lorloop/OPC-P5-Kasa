@@ -1,15 +1,70 @@
+@import '../../global';
+
 .accommodation {
   margin: 0 100px;
+}
+
+.slideshow {
+  display: flex;
+  align-items: center;
+  max-width: 1240px;
+  height: 415px;
+  border-radius: 25px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+
+  .slideshow-img {
+    position: absolute;
+    display: block;
+  }
+
+  .slideshow-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .slideshow-back-arrow {
+    transform: rotate(90deg);
+  }
+
+  .slideshow-next-arrow {
+    transform: rotate(270deg);
+  }
+
+  .slideshow-back-arrow,
+  .slideshow-next-arrow {
+    background: none;
+    border: none;
+    color: $white;
+    font-size: 96px;
+    margin-top: -50px;
+    cursor: pointer;
+  }
+
+  .slideshow-indicator {
+    color: $white;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    font-size: 18px;
+  }
 }
 
 .accommodation-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 
   .title p {
     font-size: 36px;
-    color: #ff6060;
+    color: $main-color;
     font-weight: 500;
   }
 
@@ -28,7 +83,7 @@
       align-items: center;
 
       p {
-        color: #ff6060;
+        color: $main-color;
         font-size: 18px;
         font-weight: 500;
         text-align: right;
@@ -53,15 +108,27 @@
   }
 
   .pill {
-    background-color: #ff6060;
+    background-color: $main-color;
     border-radius: 10px;
-    width: 115px;
+    padding: 4px 15px;
     text-align: center;
 
     p {
       font-size: 14px;
-      color: #ffffff;
-      padding: 3px 0;
+      color: $white;
+    }
+  }
+
+  .stars {
+    color: #e3e3e3;
+
+    .fa-star {
+      font-size: 24px;
+      margin-left: 6px;
+    }
+
+    .active {
+      color: $main-color;
     }
   }
 }
@@ -69,4 +136,11 @@
 .accommodation-accordions {
   display: flex;
   justify-content: space-between;
+  gap: 80px;
+  margin-bottom: 50px;
+
+  .accordion {
+    width: 100%;
+    max-width: 582%;
+  }
 }

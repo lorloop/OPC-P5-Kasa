@@ -9,19 +9,19 @@
   margin: 140px 0px;
 
   .error__code {
-    color: $color;
+    color: $main-color;
     font-weight: 700;
     font-size: 200px;
   }
 
   .error__description {
-    color: $color;
+    color: $main-color;
     font-size: 36px;
   }
 
   a {
     text-decoration: none;
-    color: #000000;
+    color: $black;
     font-size: 18px;
   }
 
