@@ -1,7 +1,15 @@
+@import '../../global';
+
 .accordion-list {
-  margin: 50px 100px;
+  @include main-content-margin;
+
   padding: 0 100px;
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @media (max-width: 767.98px) {
+    padding: 0;
+    gap: 20px;
+  }
 }

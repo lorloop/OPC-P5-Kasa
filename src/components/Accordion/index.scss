@@ -3,6 +3,7 @@
 .accordion-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: $main-color;
   border-radius: 5px;
   color: $white;
@@ -31,8 +32,35 @@
   transition:
     max-height 0.2s ease,
     padding 0.2s ease;
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
 
 .accordion-content.open {
   padding: 20px;
+}
+
+@media (max-width: 767.98px) {
+  .accordion-header {
+    padding: 10px 10px;
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  button {
+    font-size: 13px;
+  }
+
+  .accordion-content {
+    font-size: 12px;
+
+    p {
+      font-size: 12px;
+    }
+  }
 }

@@ -1,11 +1,19 @@
 @import '../../global';
 
 .card-list {
-  margin: 50px 100px;
+  @include main-content-margin;
+
   background-color: $bg-color;
   border-radius: 25px;
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
+
+  @media (max-width: 767.98px) {
+    background: none;
+    padding: 0;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
 }

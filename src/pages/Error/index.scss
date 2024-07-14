@@ -28,4 +28,23 @@
   a:hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 767.98px) {
+    gap: 113px;
+
+    .error__code {
+      font-size: 96px;
+    }
+
+    .error__description {
+      font-size: 18px;
+      text-align: center;
+      width: 260px;
+    }
+
+    a {
+      text-decoration: underline;
+      font-size: 14px;
+    }
+  }
 }

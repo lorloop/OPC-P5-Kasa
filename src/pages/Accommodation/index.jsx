@@ -19,10 +19,8 @@ export default function Accommodation() {
     }
   }, [accommodation, navigate])
 
-  // Définir l'état de l'image source après avoir vérifié l'existence de l'accommodation
   const [src, setSrc] = useState(accommodation ? accommodation.pictures[imgId] : '')
 
-  // Mettre à jour l'image source lorsque imgId change
   useEffect(() => {
     if (accommodation) {
       setSrc(accommodation.pictures[imgId])
@@ -64,6 +62,10 @@ export default function Accommodation() {
     return stars
   }
 
+  function setEquipments(equipments) {
+    return equipments.map((equipment) => <p key={equipment}>{equipment}</p>)
+  }
+
   return (
     <div className="accommodation">
       <div className="slideshow">
@@ -92,39 +94,41 @@ export default function Accommodation() {
       </div>
 
       <div className="accommodation-header">
-        <div className="header-title">
-          <div className="title">
-            <p>{accommodation.title}</p>
-          </div>
-          <div className="location">
-            <p>{accommodation.location}</p>
-          </div>
-        </div>
-        <div className="header-host">
-          <div className="host-name">
-            <p>{accommodation.host.name}</p>
-          </div>
-          <div className="host-picture">
-            <img src={accommodation.host.picture} alt="host picture" />
-          </div>
-        </div>
-      </div>
-      <div className="accomodation-tags">
-        <div className="pills">
-          {accommodation.tags.map((tag) => (
-            <div className="pill" key={tag}>
-              <p>{tag}</p>
+        <div className="accommodation-header-left">
+          <div className="header-title">
+            <div className="title">
+              <p>{accommodation.title}</p>
             </div>
-          ))}
+            <div className="location">
+              <p>{accommodation.location}</p>
+            </div>
+          </div>
+          <div className="pills">
+            {accommodation.tags.map((tag) => (
+              <div className="pill" key={tag}>
+                <p>{tag}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="stars">{setStars(accommodation.rating)}</div>
+        <div className="accomodation-header-right">
+          <div className="header-host">
+            <div className="host-name">
+              <p>{accommodation.host.name}</p>
+            </div>
+            <div className="host-picture">
+              <img src={accommodation.host.picture} alt="host picture" />
+            </div>
+          </div>
+          <div className="stars">{setStars(accommodation.rating)}</div>
+        </div>
       </div>
       <div className="accommodation-accordions">
         <div className="accordion">
           <Accordion title="Description" content={accommodation.description} />
         </div>
         <div className="accordion">
-          <Accordion title="Équipements" content={accommodation.equipments} />
+          <Accordion title="Équipements" content={setEquipments(accommodation.equipments)} />
         </div>
       </div>
     </div>
