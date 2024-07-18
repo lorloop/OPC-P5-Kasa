@@ -16,13 +16,13 @@
 
   .error__description {
     color: $main-color;
-    font-size: 36px;
+    @include text-36-500;
   }
 
   a {
     text-decoration: none;
     color: $black;
-    font-size: 18px;
+    @include text-18-500;
   }
 
   a:hover {
@@ -37,14 +37,12 @@
     }
 
     .error__description {
-      font-size: 18px;
       text-align: center;
       width: 260px;
     }
 
     a {
       text-decoration: underline;
-      font-size: 14px;
     }
   }
 }

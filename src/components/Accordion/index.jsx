@@ -22,7 +22,7 @@ export default function Accordion({ title, content }) {
         </button>
       </div>
       <div ref={contentRef} className={`accordion-content ${isOpen ? 'open' : 'closed'}`}>
-        {content}
+        <p>{content}</p>
       </div>
     </div>
   )

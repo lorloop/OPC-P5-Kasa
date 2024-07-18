@@ -36,9 +36,9 @@
   }
 
   .card-title {
+    @include text-18-700;
     position: absolute;
     color: $white;
-    font-size: 18px;
     margin: 20px;
   }
 

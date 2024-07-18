@@ -10,3 +10,76 @@ $black: #000000;
     margin: 27px 20px;
   }
 }
+
+@mixin text-48-700 {
+  font-size: 48px;
+  font-weight: 700;
+
+  @media (max-width: 767.98px) {
+    font-size: 24px;
+  }
+}
+
+@mixin text-36-500 {
+  font-size: 36px;
+  font-weight: 500;
+
+  @media (max-width: 767.98px) {
+    font-size: 18px;
+  }
+}
+
+@mixin text-24-500 {
+  font-size: 24px;
+  font-weight: 500;
+
+  @media (max-width: 767.98px) {
+    font-size: 12px;
+  }
+}
+
+@mixin text-24-700 {
+  font-size: 24px;
+  font-weight: 700;
+
+  @media (max-width: 767.98px) {
+    font-size: 13px;
+  }
+}
+
+@mixin text-18-700 {
+  font-size: 18px;
+  font-weight: 700;
+
+  @media (max-width: 767.98px) {
+    font-size: 13px;
+  }
+}
+
+@mixin text-18-500 {
+  font-size: 18px;
+  font-weight: 500;
+
+  @media (max-width: 767.98px) {
+    font-size: 12px;
+  }
+}
+
+@mixin text-18-400 {
+  font-size: 18px;
+  font-weight: 400;
+
+  @media (max-width: 767.98px) {
+    font-size: 12px;
+  }
+}
+
+@mixin text-14-700 {
+  font-size: 14px;
+  font-weight: 700;
+
+  @media (max-width: 767.98px) {
+    font-size: 10px;
+    font-weight: 500;
+  }
+}

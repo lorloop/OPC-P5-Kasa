@@ -20,6 +20,10 @@
   button.rotate {
     transform: rotate(180deg);
   }
+
+  p {
+    @include text-18-700;
+  }
 }
 
 .accordion-content {
@@ -27,15 +31,12 @@
   overflow: hidden;
   background-color: rgba(246, 246, 246, 0.45);
   border-radius: 5px;
-  font-size: 18px;
-  font-weight: 400;
   transition:
     max-height 0.2s ease,
     padding 0.2s ease;
 
   p {
-    font-size: 18px;
-    font-weight: 400;
+    @include text-18-400;
   }
 }
 
@@ -46,21 +47,9 @@
 @media (max-width: 767.98px) {
   .accordion-header {
     padding: 10px 10px;
-
-    p {
-      font-size: 13px;
-    }
   }
 
   button {
     font-size: 13px;
-  }
-
-  .accordion-content {
-    font-size: 12px;
-
-    p {
-      font-size: 12px;
-    }
   }
 }

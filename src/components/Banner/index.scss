@@ -19,8 +19,8 @@
   }
 
   .banner-text {
+    @include text-48-700;
     position: absolute;
-    font-size: 48px;
     color: $white;
   }
 
@@ -30,8 +30,6 @@
 
     .banner-text {
       margin-left: 16px;
-      font-size: 24px;
-      font-weight: 700;
     }
   }
 }
