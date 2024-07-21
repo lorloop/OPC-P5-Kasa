@@ -35,7 +35,8 @@
     max-height 0.2s ease,
     padding 0.2s ease;
 
-  p {
+  .accordion-content-text,
+  .accordion-content-text p {
     @include text-18-400;
   }
 }
