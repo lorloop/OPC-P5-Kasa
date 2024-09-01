@@ -1,11 +1,12 @@
 import Accordion from '../../components/Accordion'
 import Banner from '../../components/Banner'
 import './index.scss'
+import aboutBackground from '../../assets/about_banner_background.svg'
 
 export default function About() {
   return (
     <>
-      <Banner text="" backgroundUrl="/src/assets/about_banner_background.svg" />
+      <Banner text="" backgroundUrl={aboutBackground} />
       <div className="accordion-list">
         <div>
           <Accordion
